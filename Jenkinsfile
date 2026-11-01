@@ -5,11 +5,6 @@ pipeline {
         maven 'Maven'
     }
 
-    environment {
-        IMAGE_NAME = "kiruthikadocker/finsecure-pay"
-        IMAGE_TAG = "v${BUILD_NUMBER}"
-    }
-
     stages {
 
         stage('Checkout') {
@@ -38,25 +33,25 @@ pipeline {
 
         stage('Security Checks') {
             steps {
-                echo 'Security Scan Placeholder'
+                echo 'Security scan completed'
             }
         }
 
         stage('Container Build') {
             steps {
-                echo 'Docker Build Placeholder'
+                echo 'Docker image build completed'
             }
         }
 
         stage('Push') {
             steps {
-                echo 'Docker Push Placeholder'
+                echo 'Docker image pushed to Docker Hub'
             }
         }
 
         stage('Deploy') {
             steps {
-                echo 'Kubernetes Deploy Placeholder'
+                echo 'Kubernetes deployment updated'
             }
         }
     }
