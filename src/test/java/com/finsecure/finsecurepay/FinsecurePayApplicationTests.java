@@ -6,8 +6,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class FinsecurePayApplicationTests {
 
-	@Test
-	void contextLoads() {
+	void testFailure() {
+        assertEquals(1, 2);
 	}
 
 }

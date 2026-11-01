@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: finsecure-deployment
+
+spec:
+  replicas: 2
+
+  selector:
+    matchLabels:
+      app: finsecure
+
+  template:
+    metadata:
+      labels:
+        app: finsecure
+
+    spec:
+      containers:
+      - name: finsecure
+
+        image: kiruthikadocker/finsecure-pay:v1
+
+        ports:
+        - containerPort: 8080
+
+        envFrom:
+        - configMapRef:
+            name: finsecure-config
+
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 15
+          periodSeconds: 5
+
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 8080
+          initialDelaySeconds: 30
+          periodSeconds: 10
