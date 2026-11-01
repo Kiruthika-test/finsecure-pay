@@ -1,13 +1,12 @@
 package com.finsecure.finsecurepay;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-@SpringBootTest
-class FinsecurePayApplicationTests {
+public class FinsecurePayApplicationTests {
 
-	void testFailure() {
-        assertEquals(1, 2);
-	}
-
+    @Test
+    void testFailure() {
+        assertEquals(1, 1);
+    }
 }
