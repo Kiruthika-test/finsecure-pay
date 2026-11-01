@@ -26,10 +26,10 @@ pipeline {
         }
 
         stage('Dependency Scan') {
-            steps {
-                echo 'Dependency vulnerability scan completed'
-            }
-        }
+    steps {
+        error('CRITICAL Vulnerability Found')
+    }
+}
 
         stage('Container Scan') {
             steps {
