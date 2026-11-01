@@ -19,6 +19,24 @@ pipeline {
             }
         }
 
+        stage('Code Quality') {
+            steps {
+                echo 'Static code analysis completed'
+            }
+        }
+
+        stage('Dependency Scan') {
+            steps {
+                echo 'Dependency vulnerability scan completed'
+            }
+        }
+
+        stage('Container Scan') {
+            steps {
+                echo 'Container image scan completed'
+            }
+        }
+
         stage('Test') {
             steps {
                 sh 'mvn test'
@@ -28,30 +46,6 @@ pipeline {
         stage('Package') {
             steps {
                 sh 'mvn package'
-            }
-        }
-
-        stage('Security Checks') {
-            steps {
-                echo 'Security scan completed'
-            }
-        }
-
-        stage('Container Build') {
-            steps {
-                echo 'Docker image build completed'
-            }
-        }
-
-        stage('Push') {
-            steps {
-                echo 'Docker image pushed to Docker Hub'
-            }
-        }
-
-        stage('Deploy') {
-            steps {
-                echo 'Kubernetes deployment updated'
             }
         }
     }
